@@ -1,0 +1,8 @@
+# 在男学生视图中查询平均成绩大于 80 分的学生学号与姓名
+
+```sql copy
+SELECT "sno", "sname"
+FROM "public"."MaleStudentsView"
+GROUP BY "sno", "sname"
+HAVING AVG("grade") > 80;
+```

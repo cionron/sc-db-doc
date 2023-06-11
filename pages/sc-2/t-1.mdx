@@ -1,0 +1,14 @@
+# 查询选修 1 号课程的学生学号与姓名
+
+```sql copy
+SELECT "public"."S"."sno", "public"."S"."sname" 
+    FROM "public"."S", "public"."SC"
+WHERE "public"."S"."sno" = "public"."SC"."sno" 
+    AND "public"."SC"."cno" = '1';
+```
+
+![](./2023-06-11-06-53-37.png)
+
+---
+
+![](./2023-06-11-06-55-47.png)

@@ -1,0 +1,8 @@
+# 计算每个学生有成绩的课程门数、平均成绩
+
+```sql copy
+SELECT "sno", COUNT("cno") AS course_count, AVG("grade") AS average_grade
+FROM "public"."SC"
+WHERE "grade" IS NOT NULL
+GROUP BY "sno";
+```

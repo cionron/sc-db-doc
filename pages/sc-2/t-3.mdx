@@ -1,0 +1,11 @@
+# 查询不选 1 号课程的学生学号与姓名
+
+```sql copy
+SELECT "public"."S"."sno", "public"."S"."sname"
+    FROM "public"."S"
+WHERE NOT EXISTS (
+    SELECT * FROM "public"."SC"
+    WHERE "public"."S"."sno" = "public"."SC"."sno"
+    AND "public"."SC"."cno" = '1'
+);
+```

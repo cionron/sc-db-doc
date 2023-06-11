@@ -1,0 +1,10 @@
+# 在 SC 表中删除课程名为数据结构的成绩的元组
+
+```sql copy
+DELETE FROM "public"."SC"
+WHERE "cno" IN (
+  SELECT "cno"
+  FROM "public"."C"
+  WHERE "cname" = 'Data_Structure'
+);
+```

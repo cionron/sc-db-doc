@@ -1,0 +1,89 @@
+# 建立基本表
+
+## 建立 S 表
+
+```sql copy
+CREATE TABLE public."S" (
+    sno text NOT NULL,
+    sname text NOT NULL,
+    sex text NOT NULL,
+    age integer NOT NULL,
+    dept text NOT NULL
+
+);
+
+ALTER TABLE public."S" OWNER TO postgres;
+
+ALTER TABLE ONLY public."S"
+    ADD CONSTRAINT "S_pkey" PRIMARY KEY (sno);
+```
+
+## 建立 C 表
+
+```sql copy
+CREATE TABLE public."C" (
+    cno text NOT NULL,
+    cname text NOT NULL,
+    cpno text NOT NULL,
+    credit numeric(10,5) NOT NULL
+);
+
+ALTER TABLE public."C" OWNER TO postgres;
+
+ALTER TABLE ONLY public."C"
+    ADD CONSTRAINT "C_pkey" PRIMARY KEY (cno);
+```
+
+## 建立 SC 表
+
+```sql copy
+CREATE TABLE public."SC" (
+    sno text NOT NULL,
+    cno text NOT NULL,
+    grade integer
+);
+
+ALTER TABLE public."SC" OWNER TO postgres;
+
+ALTER TABLE ONLY public."SC"
+    ADD CONSTRAINT "SC_pkey" PRIMARY KEY (sno, cno);
+
+ALTER TABLE ONLY public."SC"
+    ADD CONSTRAINT "SC_sno_fkey" FOREIGN KEY (sno) REFERENCES public."S"(sno)
+    ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE ONLY public."SC"
+    ADD CONSTRAINT "SC_cno_fkey" FOREIGN KEY (cno) REFERENCES public."C"(cno)
+    ON UPDATE CASCADE ON DELETE CASCADE;
+```
+
+## DROP TABLE
+
+```sql copy
+DROP TABLE IF EXISTS "public"."S" CASCADE;
+DROP TABLE IF EXISTS "public"."SC" CASCADE;
+DROP TABLE IF EXISTS "public"."C" CASCADE;
+```
+
+## ALTER TABLE
+
+```sql copy
+ALTER TABLE "public"."S" ADD COLUMN "email" text;
+```
+
+## INDEX
+
+```sql copy
+CREATE INDEX "idx_name" ON "public"."S" ("sname");
+SELECT * FROM "public"."S" WHERE "name" = 'Alice';
+DROP INDEX "idx_name";
+```
+
+## INSERT
+
+```sql copy
+INSERT INTO "public"."S" ("sno", "sname", "sex", "age", "dept") VALUES
+    ('95001', 'Alice', 'Female', 20, 'Computer_Science'),
+    ('95002', 'Bob', 'Male', 21, 'Engineering'),
+    ('95003', 'Charlie', 'Male', 19, 'Biology');
+```

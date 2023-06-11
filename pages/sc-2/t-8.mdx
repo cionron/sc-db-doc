@@ -1,0 +1,18 @@
+# 查询选课门数唯一的学生的学号
+
+```sql copy
+SELECT "public"."SC"."sno" FROM "public"."SC"
+GROUP BY "public"."SC"."sno"
+HAVING COUNT("public"."SC"."cno") = 1;
+```
+
+
+![](./2023-06-11-07-29-55.png)
+
+---
+
+![](./2023-06-11-07-30-27.png)
+
+---
+
+![](./2023-06-11-07-29-26.png)

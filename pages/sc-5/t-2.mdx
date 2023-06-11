@@ -1,0 +1,6 @@
+# 使用 GRANT 语句，把对基本表 S、SC、C 的使用权限授给其它用户
+
+```sql copy
+CREATE USER <username> WITH PASSWORD '<password>';
+GRANT SELECT, INSERT, UPDATE, DELETE ON "public"."S" TO <usernaem>;
+```

@@ -1,0 +1,7 @@
+# 把 1 号课程的非空成绩提高 10 %
+
+```sql copy
+UPDATE "public"."SC"
+SET "grade" = "grade" * 1.1
+WHERE "cno" = '1' AND "grade" IS NOT NULL;
+```

@@ -1,0 +1,37 @@
+{
+  "index": "课程设计",
+  "---": {
+    "type": "separator"
+  },
+  "sc-1": "1-创建",
+  "sc-2": "2-查询",
+  "sc-3": "3-修改与删除",
+  "sc-4": "4-视图操作",
+  "sc-5": "5-授权控制",
+  "frameworks": {
+    "title": "数据管理系统",
+    "type": "menu",
+    "items": {
+      "/": {
+        "title": "综合查询",
+        "href": "https://082010228.655360.xyz/",
+        "newWindow": true
+      },
+      "students": {
+        "title": "学生列表",
+        "href": "https://082010228.655360.xyz/students",
+        "newWindow": true
+      },
+      "courses": {
+        "title": "课程列表",
+        "href": "https://082010228.655360.xyz/courses",
+        "newWindow": true
+      },
+      "select-courses": {
+        "title": "选课列表",
+        "href": "https://082010228.655360.xyz/select-courses",
+        "newWindow": true
+      }
+    }
+  }
+}

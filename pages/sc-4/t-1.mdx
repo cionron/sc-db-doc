@@ -1,0 +1,10 @@
+# 建立男学生的视图，属性包括学号、姓名、选修课程名和成绩
+
+```sql copy
+CREATE VIEW "public"."MaleStudentsView" AS
+SELECT "S"."sno", "S"."sname", "C"."cname", "SC"."grade"
+FROM "public"."S"
+INNER JOIN "public"."SC" ON "S"."sno" = "SC"."sno"
+INNER JOIN "public"."C" ON "SC"."cno" = "C"."cno"
+WHERE "S"."sex" = 'Male';
+```
